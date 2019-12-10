@@ -28,7 +28,7 @@ def thankYou():
     if fullName not in donors.keys():
         donors[fullName] = []
         
- # Use try/except in your code   
+ # Use try/except in your code --  Exceptions 
     amount = 0
     while amount <= 0: 
         try:
@@ -40,7 +40,7 @@ def thankYou():
                 print(amount)
                 donors[fullName].append(amount)
             else:
-                print("Enter a valid amount")
+                print("Enter a positive amount greater than 0")
         
     
         
@@ -52,7 +52,7 @@ def thankYou():
 def report():   
     print(f'{"Donor Name": <35}{"Total Given":30}{"Num Gifts":22}{"Average Gift":25}')
     print('-'*102)
-    
+    # Use Comprehensions
     [print(f'{k:20} {sum(v):{25}.2f} {len(v):25} {(sum(v)/len(v)):{25}.2f}') for k,v in donors.items()]
         
 def letter():

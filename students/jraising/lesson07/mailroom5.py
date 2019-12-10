@@ -7,9 +7,19 @@ Created on Thu Oct 31 23:19:05 2019
 """
 
 
-
-
-
+class Donor:
+    def __init__(self, DonorName, ListInitialDonations = None):
+        self.DonorName = DonorName
+        self.Donations = ListInitialDonations
+        
+    def AddDonation(self, Amount):
+        self.Donations.append(Amount)
+        
+    def AverageDonations(self):
+        return sum(self.Donations)/len(self.Donations)
+    
+    def SendEmailLatest(self):
+        print ('Dear donor' , self.DonorName, 'the last donation is', self.Donations[-1])
 
 
 #donors = {'William Gates, III': [653784.49, 1000.50], 
@@ -55,50 +65,35 @@ Created on Thu Oct 31 23:19:05 2019
 #    
 #    print(f'{fullName}, Thank you very much for your donation of ${amount}')
 #
-#def report(inDonor):   
-#
-#    temp =   f'{"Donor Name": <35}{"Total Given":30}{"Num Gifts":22}{"Average Gift":25}'
-#    temp += ('-'*102 ) + '\n'
-#    for k,v in inDonor.items():
-#        temp += f'{k:20} {sum(v):{25}.2f} {len(v):25} {(sum(v)/len(v)):{25}.2f}' + '\n'
+#def report():   
+#    print(f'{"Donor Name": <35}{"Total Given":30}{"Num Gifts":22}{"Average Gift":25}')
+#    print('-'*102)
 #    
-#
-#def myReport():
-#    generatedReport = report(donors)
-#    print (generatedReport)
-#
-#def letter(inDonor):
-#    for k,v in inDonor.items():
+#    [print(f'{k:20} {sum(v):{25}.2f} {len(v):25} {(sum(v)/len(v)):{25}.2f}') for k,v in donors.items()]
+#        
+#def letter():
+#    for k,v in donors.items():
 ##         print(f'{k}, Thank you very much for your donation of ${sum(v):.2f}')
 #         with open(f'{k}.txt', 'w') as file:
-#             print(k)
 #             file.write(f'Subject: Thank You \n Dear {k}, \n Thank you very much for your donation of ${sum(v):.2f} ')
-#          
-#def myLetter():
-#    letter(donors)
+#             
+#        
 #    
 #
 #def quit():
 #    print("You are quitting the menu")
 #    return "Exit menu"
 #
-##def thankYou_menu():
-##    menu_selection(thankYou_prompt,thankYou_dispatch)
+#
 #    
 #       
 #main_prompt = (" Select 1 to donate, 2 to Create a Report, 3 to Send a Thank You, or q to quit >> ")
 #
 #main_dispatch = {"1" : thankYou,
-#                 "2" : myReport,
-#                 "3" : myLetter,
+#                 "2" : report,
+#                 "3" : letter,
 #                 "q" : quit
 #                }
 #
-##thankYou_prompt = ("Enter full name >> ")
-##
-##thankYou_dispatch = {"list": print(donors.keys()),
-##                     
-##                     "q": quit
-##                     }
-#if __name__ == "__main__":
-#    menu_selection(main_prompt,main_dispatch)
+#
+#menu_selection(main_prompt,main_dispatch)
